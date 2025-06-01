@@ -30,16 +30,6 @@ namespace online_bookstore.Controllers
             return Ok($"Role '{roleName}' created successfully.");
         }
 
-        [HttpPost("AddClaimToRole")]
-        public async Task<IActionResult> AddClaimToRole([FromBody] RoleClaimDto dto)
-        {
-            var result = await _roleClaimService.AddClaimToRoleAsync(dto.RoleName, dto.ClaimType, dto.ClaimValue);
-            if (!result.Succeeded)
-                return BadRequest(result.Errors);
-
-            return Ok($"Claim '{dto.ClaimType}:{dto.ClaimValue}' added to role '{dto.RoleName}'.");
-        }
-
         [HttpPost("AssignRoleToUser")]
         public async Task<IActionResult> AssignRoleToUser([FromBody] UserRoleDto dto)
         {
