@@ -6,7 +6,7 @@ Welcome to the **Online Bookstore** project — a full-featured, secure, and sca
 
 ## 🔧 Tech Stack
 
-- **Backend Framework**: ASP.NET Core (.NET 6/7)
+- **Backend Framework**: ASP.NET Core (.NET 8)
 - **Authentication**: JWT Token Authentication
 - **Authorization**: ASP.NET Core Identity
 - **ORM**: Entity Framework Core
