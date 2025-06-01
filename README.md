@@ -8,32 +8,39 @@ Welcome to the **Online Bookstore** project — a full-featured, secure, and sca
 
 - **Backend Framework**: ASP.NET Core (.NET 8)
 - **Authentication**: JWT Token Authentication
-- **Authorization**: ASP.NET Core Identity
-- **ORM**: Entity Framework Core
+- **Authorization**: ASP.NET Core Identity with **Role-Based Access Control (RBAC)**
+  - Roles used: `Admin`, `User`
+- **ORM**: Entity Framework Core (Code-First)
 - **Database**: PostgreSQL
 - **Middleware**:
-  - Custom Authentication Middleware
-  - Logging Middleware for request/response
+  - ✅ Custom **Authentication Middleware**
+  - ✅ Custom **Logging Middleware** (Logs requests & responses)
 - **Security Measures**:
-  - SQL Injection prevention (EF Core)
-  - XSS protection (encoded output / sanitization)
-  - Strong password hashing (PBKDF2)
-  - Input validation via Data Annotations
+  - ✅ SQL Injection prevention using EF Core (parameterized queries)
+  - ✅ Cross-Site Scripting (XSS) protection using safe encoding & validation
+  - ✅ Secure password hashing (PBKDF2 via ASP.NET Identity)
+  - ✅ Input validation using **Data Annotations** and **Model Binding**
 - **Development Practices**:
-  - Dependency Injection (DI)
-  - Repository Pattern (optional)
-  - Logging via built-in ILogger
+  - Dependency Injection (built-in in ASP.NET Core)
+  - Clean separation of concerns
+  - Repository Pattern (optional extension)
+  - Built-in logging using `ILogger<T>`
 
 ---
 
 ## 🗄️ Database Details
 
-- **Database Name**: `online_bookstore`
-- **Database Type**: PostgreSQL
-- **Host**: Configured in `appsettings.json`
-- **Username**: `postgres`
-- **Password**: `password12345`
+| Property        | Value                |
+|----------------|----------------------|
+| **Database**    | `online_bookstore`   |
+| **Type**        | PostgreSQL           |
+| **Host**        | `localhost`          |
+| **Username**    | `postgres`           |
+| **Password**    | `password12345`      |
 
+
+
+### 🔗 Connection String Example (`appsettings.json`)
 ```json
 "ConnectionStrings": {
   "DefaultConnection": "Host=localhost;Database=online_bookstore;Username=postgres;Password=password12345"
