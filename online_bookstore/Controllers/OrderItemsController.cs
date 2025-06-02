@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace online_bookstore.Controllers
 {
-    [Authorize(Roles = "User,Admin")]
+    [Authorize(Roles = "User")]
     [Route("api/[controller]")]
     [ApiController]
     public class OrderItemsController : ControllerBase
@@ -54,6 +54,7 @@ namespace online_bookstore.Controllers
         // PUT: api/OrderItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutOrderItem(int id, OrderItem orderItem)
         {
             if (id != orderItem.Id)
@@ -85,6 +86,7 @@ namespace online_bookstore.Controllers
         // POST: api/OrderItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<OrderItem>> PostOrderItem(OrderItem orderItem)
         {
             if (!ModelState.IsValid)
